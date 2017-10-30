@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>보이지만 보이지 않는 것</title>
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style type="text/css">
+	#main{
+		background-image: url('./static/data/game1/game-bg.png'); 
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		height: 100vh;
+	}
+	.area{
+		position: absolute;
+		width:260px;
+		height: 260px;
+	}
+	/* MOUNTATION POSITION */
+	.mt{
+		position: absolute;z-index: 10;left: 50px;top: 60px;
+	}
+	.mt-seorak{
+	    left: 55px;
+    	top: 65px;
+	}
+	.mt-ode{
+		top: 65px;
+    	left: 55px;
+	}
+	.area-hans{
+		top:400px; left:300px;
+	}
+	.area-jiri{
+		top:300px; left:800px;
+	}
+	.area-deog{
+		top:400px; left:1300px;
+	}
+	.area-seorak{
+		top:700px; left:600px;
+	}
+	.area-ode{
+		top:700px; left:1100px;
+	}
+
+	/* GRADATION POSITION */
+	.grada-area{
+		position: absolute;
+	}
+	.grada-4{
+		position:absolute;z-index:9;
+		width:174px;
+		height: 174px;
+	}
+	.grada-3{
+		position:absolute;z-index:8;
+		width:174px;
+		height: 174px;
+	}
+	.grada-2{
+		position:absolute;z-index:7;
+		width:174px;
+		height: 174px;
+	}
+	.grada-1{
+		position:absolute;z-index:6;
+		width:174px;
+		height: 174px;
+	}
+	.grada-0-mt{
+		position: absolute;z-index: 5; left: -15px;top: -50px;
+	}
+	.stage-area{
+		position: absolute; right: 20px; top:340px;
+	}
+
+</style>
+
+<body >
+	<div class="container-fluid" id="main">
+		<nav class="navbar navbar-expand-lg navbar-light " style="padding-top: 20px;">
+			<a class="navbar-brand" href="/">
+				<img src="./static/data/login/login-topbar.png">
+			</a>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+				</ul>
+				<div class="my-2 my-lg-0">
+					<img src="./static/data/login/login-toprightlogo.png">
+				</div>
+			</div>
+		</nav>
+
+
+		<!-- GAME AREA -->
+		
+
+		<div id="game" >
+			<div id="vid" style="width: 164px;height: 56px;background: url('./static/data/game1/namebox.png') no-repeat; z-index: 100000; position: absolute; background-size: 164px 56px;">
+				<p style="text-align: center;color: #0F2C3E;margin: 0 auto;font-size: 28px;margin-top: 6px;">{{ result }}</p>
+			</div>
+			<!-- HANS MT AREA -->
+			<div class="area area-hans">
+				<img class="mt" src="./static/data/game1/game1-hanmt.png">
+				<div id="grada-hans-area" class="grada-area">
+					<!-- <img src='./static/data/game1/gradation1/gradation1-4.png' class="grada-4" id="hans-gra-4">
+					<img src='./static/data/game1/gradation1/gradation1-3.png' class="grada-3" id="hans-gra-3">
+					<img src='./static/data/game1/gradation1/gradation1-2.png' class="grada-2" id="hans-gra-2"> -->
+					<!-- <img src='./static/data/game1/gradation1/gradation1-1.png' class="grada-1" id="hans-gra-1"> -->
+					<img src='./static/data/game1/gradation1/gradation1.png' class="grada-1" id="hans-gra-1">
+					<img src="./static/data/game1/game1-hanmtcircle.png" class="grada-0-mt" id="hans-gra-0">
+				</div>
+			</div>
+			<!-- END HANS MT AREA -->
+
+			<!-- JIRI MT AREA -->
+			<div class="area area-jiri">
+				<img class="mt" src="./static/data/game1/game1-jirimt.png">
+				<div id="grada-jiri-area" class="grada-area">
+					<!-- <img src='./static/data/game1/gradation1/gradation1-4.png' class="grada-4">
+					<img src='./static/data/game1/gradation1/gradation1-3.png' class="grada-3">
+					<img src='./static/data/game1/gradation1/gradation1-2.png' class="grada-2"> -->
+					<img src='./static/data/game1/gradation1/gradation1.png' class="grada-1" id="jiri-gra-1">
+					<img src="./static/data/game1/game1-jirimtcircle.png" class="grada-0-mt" id="jiri-gra-0">
+				</div>
+			</div>
+			<!-- END JIRI MT AREA -->
+
+			<!-- DEOGYU MT AREA -->
+			<div class="area area-deog">
+				<img class="mt" src="./static/data/game1/game1-deogyumt.png">
+				<div id="grada-deog-area" class="grada-area">
+					<!-- <img src='./static/data/game1/gradation1/gradation1-4.png' class="grada-4">
+					<img src='./static/data/game1/gradation1/gradation1-3.png' class="grada-3">
+					<img src='./static/data/game1/gradation1/gradation1-2.png' class="grada-2"> -->
+					<img src='./static/data/game1/gradation1/gradation1.png' class="grada-1" id="deog-gra-1">
+					<img src="./static/data/game1/game1-deogyumtcircle.png" class="grada-0-mt" id="deog-gra-0">
+				</div>
+			</div>
+			<!-- END DEOGYU MT AREA -->
+
+			<!-- SEORAK MT AREA -->
+			<div class="area area-seorak">
+				<img class="mt mt-seorak" src="./static/data/game1/game1-seorakmt.png">
+				<div id="grada-seorak-area" class="grada-area">
+					<!-- <img src='./static/data/game1/gradation1/gradation1-4.png' class="grada-4">
+					<img src='./static/data/game1/gradation1/gradation1-3.png' class="grada-3">
+					<img src='./static/data/game1/gradation1/gradation1-2.png' class="grada-2"> -->
+					<img src='./static/data/game1/gradation1/gradation1.png' class="grada-1" id="seorak-gra-1">
+					<img src="./static/data/game1/game1-seorakmtcircle.png" class="grada-0-mt" id="seorak-gra-0">
+				</div>
+			</div>
+			<!-- END SEORAK MT AREA -->
+
+
+			<!-- ODE MT AREA -->
+			<div class="area area-ode">
+				<img class="mt mt-ode" src="./static/data/game1/game1-odemt.png">
+				<div id="grada-ode-area" class="grada-area">
+					<!-- <img src='./static/data/game1/gradation1/gradation1-4.png' class="grada-4">
+					<img src='./static/data/game1/gradation1/gradation1-3.png' class="grada-3">
+					<img src='./static/data/game1/gradation1/gradation1-2.png' class="grada-2"> -->
+					<img src='./static/data/game1/gradation1/gradation1.png' class="grada-1" id="ode-gra-1">
+					<img src="./static/data/game1/game1-odemtcircle.png" class="grada-0-mt" id="ode-gra-0">
+				</div>
+			</div>
+			<!-- END ODE MT AREA -->
+
+			<!-- STAGE AREA -->
+			<div class="stage-area" style="">
+				<img id="stage" src="./static/game_navi/game1-1ststage.png" style="height: 448px;">
+			</div>	
+			<!-- END STAGE AREA -->
+		</div>
+		<!-- END GAME AREA -->
+
+		<div class="footer" style="position: fixed;bottom: 30px;left: 50px; display: inline;">
+			<ul class="navbar-nav" style="display: inline-block;">
+				<li class="nav-link" style="float: left;padding: 10px;"><a href="/"><img src="./static/navi/main-off.png"></a></li>
+				<li class="nav-link" style="float: left;padding: 10px;"><a href="/regist"><img src="./static/navi/login-off.png"></a></li>
+				<li class="nav-link" style="float: left;padding: 10px;"><a href="#"><img src="./static/navi/story-off.png"></a></li>
+				<li class="nav-link" style="float: left;padding: 10px;"><a href="#"><img src="./static/navi/game-on.png"></a></li>
+			</ul>
+		</div>
+
+	</div>
+
+
+
+	<script type="text/javascript" src="./static/js/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+
+	<script type=text/javascript>
+	var detect_range = new Array();
+ 	// var Xdetect_range = new Array();
+ 	// var Ydetect_range = new Array();
+	var hasn = [5,0,0];
+	var jirin = [5,0,0];
+	var deogn = [5,0,0];
+	var seorakn = [5,0,0];
+	var oden = [5,0,0];
+
+	var start_T = new Date();
+	var second_stage = [0,0,0,0,0];
+	
+	function check_second(a,b,c,d,e){
+		if(a[1] > 9 ){
+			second_stage[0] = 1
+		}
+		if(b[1] > 9 ){
+			second_stage[1] = 1
+		}
+		if(c[1] > 9 ){
+			second_stage[2] = 1
+		}
+		if(d[1] > 9 ){
+			second_stage[3] = 1
+		}
+		if(e[1] > 9 ){
+			second_stage[4] = 1
+		}
+		var check_num = 0;
+		
+		for (var nums2 in second_stage){
+			check_num += Number(second_stage[nums2]);
+		}
+		console.log(check_num);
+		if(check_num >= 3){
+			$('#stage').attr('src','./static/game_navi/game2-2ststage.png');	
+		}
+
+		
+	}
+
+	function RangeTime(a,b,c,d,e){
+		if (a[0] === 10 && b[0] === 10 && c[0] === 10 && d[0] === 10 && e[0] === 10){
+			if(a[1] === 10 && b[1] === 10 && c[1] === 10 && d[1] === 10 && e[1] === 10){
+				if(a[2] === 10 && b[2] === 10 && c[2] === 10 && d[2] === 10 && e[2] === 10){
+					$('#stage').attr('src','./static/game_navi/game3-3ststage.png');
+					var finish_T = new Date();
+					var range_T = (finish_T - start_T);
+					var min = parseInt(range_T/60000);
+					var sec = Math.floor(parseInt(range_T%60000)/100)/10;
+					// console.log(min+"분 "+sec+"초");
+					// console.log("http://127.0.0.1:5000/fin?username={{ result }}&range_time="+min+":sec")
+					setTimeout(function(){
+					
+						location.replace("http://127.0.0.1:5000/fin?username={{ result }}&range_time="+min+":"+sec+ "&detect_range="+detect_range);
+						
+					}, 500); 
+					
+				}
+			}
+			
+		}
+
+	}
+
+	var x_axis = 0;
+	var y_axis = 0;
+
+	var source = new EventSource("/sub");
+	source.addEventListener('message', function(e){
+		var obj = document.getElementById("vid");
+		var datas = JSON.parse(e.data);
+		
+		// x_axis = datas["x"]
+		x_axis = 1850 - datas["x"]
+		y_axis = datas["y"]+100
+
+		obj.style.transform = "translate("+String(x_axis)+"px, "+String(y_axis)+"px)";
+
+		hans_ch(x_axis, y_axis);
+		jiri_ch(x_axis, y_axis);
+		deog_ch(x_axis, y_axis);
+		seorak_ch(x_axis, y_axis);
+		ode_ch(x_axis, y_axis);
+		check_second(hasn, jirin, deogn, seorakn, oden);
+		detect_range.push([x_axis,y_axis,"|"]);
+		RangeTime(hasn, jirin, deogn, seorakn, oden);
+		
+		
+		// console.log(detect_range);
+		// setTimeout(function(){
+		// 	location.replace("http://127.0.0.1:5000/fin?username={{ result }}&range_time=0:35"+ "&detect_range="+detect_range);
+		// },5000)
+		 
+	}, false);
+
+	// 한라산 - 체크
+	function hans_ch(x,y){
+		if (Math.abs(300 - x) < 130 && Math.abs(400  -y)<130){
+			if (hasn[0]<10){
+				hasn[0] += 5
+
+			}else{
+				if (hasn[1]<10){
+					hasn[1] += 5
+
+					// $('#hans-gra-4').attr('src','./static/img/gradation2/gradation2-4.png');
+					// $('#hans-gra-3').attr('src','./static/img/gradation2/gradation2-3.png');
+					// $('#hans-gra-2').attr('src','./static/img/gradation2/gradation2-2.png');
+					$('#hans-gra-1').attr('src','./static/data/game2/gradation2/gradation2.png');
+					$('#hans-gra-0').attr('src','./static/data/game2/game2-hanramtcircle.png');
+					// $('#grada-hans-area').html("");
+					// $('#grada-hans-area').html(
+					// 	"<img src='./static/img/gradation2/gradation2-4.png' class='grada-4'>"+
+					// 	"<img src='./static/img/gradation2/gradation2-3.png' class='grada-3'>"+
+					// 	"<img src='./static/img/gradation2/gradation2-2.png' class='grada-2'>"+
+					// 	"<img src='./static/img/gradation2/gradation2-1.png' class='grada-1'>"+
+					// 	"<img src='./static/data/game2/game2-hanramtcircle.png' class='grada-0-mt'>"
+					// 	);
+					
+				}else{
+					if (hasn[2]<10){
+						hasn[2] += 5
+						// $('#grada-hans-area').html("");
+						// $('#grada-hans-area').html(
+						// 	"<img src='./static/img/gradation3/gradation3-4.png' class='grada-4'>"+
+						// 	"<img src='./static/img/gradation3/gradation3-3.png' class='grada-3'>"+
+						// 	"<img src='./static/img/gradation3/gradation3-2.png' class='grada-2'>"+
+						// 	"<img src='./static/img/gradation3/gradation3-1.png' class='grada-1'>"+
+						// 	"<img src='./static/data/game3/game3-hanramtcircle.png' class='grada-0-mt'>"
+						// );
+
+					// $('#hans-gra-4').attr('src','./static/img/gradation3/gradation3-4.png');
+					// $('#hans-gra-3').attr('src','./static/img/gradation3/gradation3-3.png');
+					// $('#hans-gra-2').attr('src','./static/img/gradation3/gradation3-2.png');
+					$('#hans-gra-1').attr('src','./static/data/game3/gradation3/gradation3.png');
+					$('#hans-gra-0').attr('src','./static/data/game3/game3-hanramtcircle.png');
+					}else{
+
+					}
+				}
+			}
+
+		}
+	}
+
+	// 지리산 - 체크
+	function jiri_ch(x,y){
+		if (Math.abs(800 - x) < 130 && Math.abs(300  -y)<130){
+			if (jirin[0]<10){
+				jirin[0] += 5
+
+			}else{
+				if (jirin[1]<10){
+					jirin[1] += 5
+					// $('#grada-jiri-area').html("");
+					// $('#grada-jiri-area').html(
+					// 	"<img src='./static/img/gradation2/gradation2-4.png' class='grada-4'>"+
+					// 	"<img src='./static/img/gradation2/gradation2-3.png' class='grada-3'>"+
+					// 	"<img src='./static/img/gradation2/gradation2-2.png' class='grada-2'>"+
+					// 	"<img src='./static/img/gradation2/gradation2-1.png' class='grada-1'>"+
+					// 	"<img src='./static/data/game2/game2-jirimtcircle.png' class='grada-0-mt'>"
+					// 	);
+					$('#jiri-gra-1').attr('src','./static/data/game2/gradation2/gradation2.png');
+					$('#jiri-gra-0').attr('src','./static/data/game2/game2-jirimtcircle.png');
+					
+				}else{
+					if (jirin[2]<10){
+						jirin[2] += 5
+						// $('#grada-jiri-area').html("");
+						// $('#grada-jiri-area').html(
+						// 	"<img src='./static/img/gradation3/gradation3-4.png' class='grada-4'>"+
+						// 	"<img src='./static/img/gradation3/gradation3-3.png' class='grada-3'>"+
+						// 	"<img src='./static/img/gradation3/gradation3-2.png' class='grada-2'>"+
+						// 	"<img src='./static/img/gradation3/gradation3-1.png' class='grada-1'>"+
+						// 	"<img src='./static/data/game3/game3-jirimtcircle.png' class='grada-0-mt'>"
+						// );
+						$('#jiri-gra-1').attr('src','./static/data/game3/gradation3/gradation3.png');
+						$('#jiri-gra-0').attr('src','./static/data/game3/game3-jirimtcircle.png');
+					}else{
+
+					}
+				}
+			}
+
+		}
+	}
+
+	// 덕유산 - 체크
+	function deog_ch(x,y){
+		if (Math.abs(1300 - x) < 130 && Math.abs(400  -y)<130){
+			if (deogn[0]<10){
+				deogn[0] += 5
+
+			}else{
+				if (deogn[1]<10){
+					deogn[1] += 5
+					// $('#grada-deog-area').html("");
+					// $('#grada-deog-area').html(
+					// 	"<img src='./static/img/gradation2/gradation2-4.png' class='grada-4'>"+
+					// 	"<img src='./static/img/gradation2/gradation2-3.png' class='grada-3'>"+
+					// 	"<img src='./static/img/gradation2/gradation2-2.png' class='grada-2'>"+
+					// 	"<img src='./static/img/gradation2/gradation2-1.png' class='grada-1'>"+
+					// 	"<img src='./static/data/game2/game2-deogyumtcircle.png' class='grada-0-mt'>"
+					// 	);
+					$('#deog-gra-1').attr('src','./static/data/game2/gradation2/gradation2.png');
+					$('#deog-gra-0').attr('src','./static/data/game2/game2-deogyumtcircle.png');
+					
+				}else{
+					if (deogn[2]<10){
+						deogn[2] += 5
+						// $('#grada-deog-area').html("");
+						// $('#grada-deog-area').html(
+						// 	"<img src='./static/img/gradation3/gradation3-4.png' class='grada-4'>"+
+						// 	"<img src='./static/img/gradation3/gradation3-3.png' class='grada-3'>"+
+						// 	"<img src='./static/img/gradation3/gradation3-2.png' class='grada-2'>"+
+						// 	"<img src='./static/img/gradation3/gradation3-1.png' class='grada-1'>"+
+						// 	"<img src='./static/data/game3/game3-deogyumtcircle.png' class='grada-0-mt'>"
+						// );
+						$('#deog-gra-1').attr('src','./static/data/game3/gradation3/gradation3.png');
+						$('#deog-gra-0').attr('src','./static/data/game3/game3-deogyumtcircle.png');
+
+					}else{
+
+					}
+				}
+			}
+
+		}
+	}
+
+	// 설악산 - 체크
+	function seorak_ch(x,y){
+		if (Math.abs(600 - x) < 130 && Math.abs(700  -y)<130){
+			if (seorakn[0]<10){
+				seorakn[0] += 5
+
+			}else{
+				if (seorakn[1]<10){
+					seorakn[1] += 5
+					// $('#grada-seorak-area').html("");
+					// $('#grada-seorak-area').html(
+					// 	"<img src='./static/img/gradation2/gradation2-4.png' class='grada-4'>"+
+					// 	"<img src='./static/img/gradation2/gradation2-3.png' class='grada-3'>"+
+					// 	"<img src='./static/img/gradation2/gradation2-2.png' class='grada-2'>"+
+					// 	"<img src='./static/img/gradation2/gradation2-1.png' class='grada-1'>"+
+					// 	"<img src='./static/data/game2/game2-seorakmtcircle.png' class='grada-0-mt'>"
+					// 	);
+					$('#seorak-gra-1').attr('src','./static/data/game2/gradation2/gradation2.png');
+					$('#seorak-gra-0').attr('src','./static/data/game2/game2-seorakmtcircle.png');
+					
+				}else{
+					if (seorakn[2]<10){
+						seorakn[2] += 5
+						// $('#grada-seorak-area').html("");
+						// $('#grada-seorak-area').html(
+						// 	"<img src='./static/img/gradation3/gradation3-4.png' class='grada-4'>"+
+						// 	"<img src='./static/img/gradation3/gradation3-3.png' class='grada-3'>"+
+						// 	"<img src='./static/img/gradation3/gradation3-2.png' class='grada-2'>"+
+						// 	"<img src='./static/img/gradation3/gradation3-1.png' class='grada-1'>"+
+						// 	"<img src='./static/data/game3/game3-seorakmtcircle.png' class='grada-0-mt'>"
+						// );
+						$('#seorak-gra-1').attr('src','./static/data/game3/gradation3/gradation3.png');
+						$('#seorak-gra-0').attr('src','./static/data/game3/game3-seorakmtcircle.png');
+					}else{
+
+					}
+				}
+			}
+
+		}
+	}
+
+	// 오대산 - 체크
+	function ode_ch(x,y){
+		if (Math.abs(1100 - x) < 130 && Math.abs(700  -y)<130){
+			if (oden[0]<10){
+				oden[0] += 5
+
+			}else{
+				if (oden[1]<10){
+					oden[1] += 5
+					// $('#grada-ode-area').html("");
+					// $('#grada-ode-area').html(
+					// 	"<img src='./static/img/gradation2/gradation2-4.png' class='grada-4'>"+
+					// 	"<img src='./static/img/gradation2/gradation2-3.png' class='grada-3'>"+
+					// 	"<img src='./static/img/gradation2/gradation2-2.png' class='grada-2'>"+
+					// 	"<img src='./static/img/gradation2/gradation2-1.png' class='grada-1'>"+
+					// 	"<img src='./static/data/game2/game2-odemtcircle.png' class='grada-0-mt'>"
+					// 	);
+					$('#ode-gra-1').attr('src','./static/data/game2/gradation2/gradation2.png');
+					$('#ode-gra-0').attr('src','./static/data/game2/game2-odemtcircle.png');
+					
+				}else{
+					if (oden[2]<10){
+						oden[2] += 5
+						// $('#grada-ode-area').html("");
+						// $('#grada-ode-area').html(
+						// 	"<img src='./static/img/gradation3/gradation3-4.png' class='grada-4'>"+
+						// 	"<img src='./static/img/gradation3/gradation3-3.png' class='grada-3'>"+
+						// 	"<img src='./static/img/gradation3/gradation3-2.png' class='grada-2'>"+
+						// 	"<img src='./static/img/gradation3/gradation3-1.png' class='grada-1'>"+
+						// 	"<img src='./static/data/game3/game3-odemtcircle.png' class='grada-0-mt'>"
+						// );
+						$('#ode-gra-1').attr('src','./static/data/game3/gradation3/gradation3.png');
+						$('#ode-gra-0').attr('src','./static/data/game3/game3-odemtcircle.png');
+					}else{
+
+					}
+				}
+			}
+
+		}
+	}
+
+	// 최종 끝시간 체크
+	
+	
+
+</script>
+</body>
+</html>

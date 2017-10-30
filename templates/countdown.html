@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+	<title>보이지만 보이지 않는 것</title>
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style type="text/css">
+	#main{
+		background-image: url('./static/data/login/login-bg.png'); 
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		height: 100vh;
+	}
+	#form_back{
+		opacity: 0;
+		background-image: url('./static/data/login/login-namebox.png'); 
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		height:452px;
+		width: 429px;
+	}
+	#input_name{
+		background: transparent;
+		color: rgb(252, 244, 231);
+		font-size: 40px;
+		margin-top: 195px;
+		margin-left: 55px;
+		width: 325px;
+		border:none ;
+	}
+	#submit_btn{
+		margin-top: 85px;
+		margin-left: 40px;
+		width: 200px;
+		height: 40px;
+		background: transparent;
+		border:none ;
+		cursor: pointer;
+	}
+	#titles{
+		opacity: 0;
+	}
+	.cd{
+		z-index: 3;
+		position: absolute;
+		left: 255px;
+	}
+	#cd1{
+		z-index: 1;
+		opacity: 0;	
+	}
+	#cd2{
+		z-index: 2;
+		opacity: 0;		
+	}
+	#rt3{
+		z-index: 4;
+		position: absolute;
+		margin-bottom: 200px;
+		top:-8px;
+		left:470px;
+	}
+	#rt2,#rt1{
+		z-index: 4;
+		opacity: 0;			
+	}
+	#rotate{
+		height: 448px;
+	}
+	@-webkit-keyframes swings {
+		5%{
+			-webkit-transform: rotate3d(0,0,1,18deg);
+			transform: rotate3d(0,0,1,18deg);
+		}
+		10%{
+			-webkit-transform: rotate3d(0,0,1,36deg);
+			transform: rotate3d(0,0,1,36deg);	
+		}
+		15%{
+			-webkit-transform: rotate3d(0,0,1,54deg);
+			transform: rotate3d(0,0,1,54deg);
+		}
+		20% {
+			-webkit-transform: rotate3d(0,0,1,72deg);
+			transform: rotate3d(0,0,1,72deg);
+		}
+		25% {
+			-webkit-transform: rotate3d(0,0,1,90deg);
+			transform: rotate3d(0,0,1,90deg);
+		}
+		30% {
+			-webkit-transform: rotate3d(0,0,1,108deg);
+			transform: rotate3d(0,0,1,108deg);
+		}
+		35% {
+			-webkit-transform: rotate3d(0,0,1,126deg);
+			transform: rotate3d(0,0,1,126deg);
+		}
+		40% {
+			-webkit-transform: rotate3d(0,0,1,144deg);
+			transform: rotate3d(0,0,1,144deg);
+		}
+		45% {
+			-webkit-transform: rotate3d(0,0,1,162deg);
+			transform: rotate3d(0,0,1,162deg);
+		}
+		50% {
+			-webkit-transform: rotate3d(0,0,1,180deg);
+			transform: rotate3d(0,0,1,180deg);
+		}
+		55% {
+			-webkit-transform: rotate3d(0,0,1,198deg);
+			transform: rotate3d(0,0,1,198deg);
+		}
+		60% {
+			-webkit-transform: rotate3d(0,0,1,216deg);
+			transform: rotate3d(0,0,1,216deg);
+		}
+		65% {
+			-webkit-transform: rotate3d(0,0,1,234deg);
+			transform: rotate3d(0,0,1,234deg);
+		}
+		70% {
+			-webkit-transform: rotate3d(0,0,1,252deg);
+			transform: rotate3d(0,0,1,252deg);
+		}
+		75% {
+			-webkit-transform: rotate3d(0,0,1,270deg);
+			transform: rotate3d(0,0,1,270deg);
+		}
+		80% {
+			-webkit-transform: rotate3d(0,0,1,288deg);
+			transform: rotate3d(0,0,1,288deg);
+		}
+		85% {
+			-webkit-transform: rotate3d(0,0,1,306deg);
+			transform: rotate3d(0,0,1,306deg);
+		}
+		90% {
+			-webkit-transform: rotate3d(0,0,1,324deg);
+			transform: rotate3d(0,0,1,324deg);
+		}
+		95% {
+			-webkit-transform: rotate3d(0,0,1,342deg);
+			transform: rotate3d(0,0,1,342deg);
+		}
+		100% {
+			-webkit-transform: rotate3d(0,0,1,360deg);
+			transform: rotate3d(0,0,1,360deg);
+		}
+		
+
+	}
+	@keyframes swings {
+		5%{
+			-webkit-transform: rotate3d(0,0,1,18deg);
+			transform: rotate3d(0,0,1,18deg);
+		}
+		10%{
+			-webkit-transform: rotate3d(0,0,1,36deg);
+			transform: rotate3d(0,0,1,36deg);	
+		}
+		15%{
+			-webkit-transform: rotate3d(0,0,1,54deg);
+			transform: rotate3d(0,0,1,54deg);
+		}
+		20% {
+			-webkit-transform: rotate3d(0,0,1,72deg);
+			transform: rotate3d(0,0,1,72deg);
+		}
+		25% {
+			-webkit-transform: rotate3d(0,0,1,90deg);
+			transform: rotate3d(0,0,1,90deg);
+		}
+		30% {
+			-webkit-transform: rotate3d(0,0,1,108deg);
+			transform: rotate3d(0,0,1,108deg);
+		}
+		35% {
+			-webkit-transform: rotate3d(0,0,1,126deg);
+			transform: rotate3d(0,0,1,126deg);
+		}
+		40% {
+			-webkit-transform: rotate3d(0,0,1,144deg);
+			transform: rotate3d(0,0,1,144deg);
+		}
+		45% {
+			-webkit-transform: rotate3d(0,0,1,162deg);
+			transform: rotate3d(0,0,1,162deg);
+		}
+		50% {
+			-webkit-transform: rotate3d(0,0,1,180deg);
+			transform: rotate3d(0,0,1,180deg);
+		}
+		55% {
+			-webkit-transform: rotate3d(0,0,1,198deg);
+			transform: rotate3d(0,0,1,198deg);
+		}
+		60% {
+			-webkit-transform: rotate3d(0,0,1,216deg);
+			transform: rotate3d(0,0,1,216deg);
+		}
+		65% {
+			-webkit-transform: rotate3d(0,0,1,234deg);
+			transform: rotate3d(0,0,1,234deg);
+		}
+		70% {
+			-webkit-transform: rotate3d(0,0,1,252deg);
+			transform: rotate3d(0,0,1,252deg);
+		}
+		75% {
+			-webkit-transform: rotate3d(0,0,1,270deg);
+			transform: rotate3d(0,0,1,270deg);
+		}
+		80% {
+			-webkit-transform: rotate3d(0,0,1,288deg);
+			transform: rotate3d(0,0,1,288deg);
+		}
+		85% {
+			-webkit-transform: rotate3d(0,0,1,306deg);
+			transform: rotate3d(0,0,1,306deg);
+		}
+		90% {
+			-webkit-transform: rotate3d(0,0,1,324deg);
+			transform: rotate3d(0,0,1,324deg);
+		}
+		95% {
+			-webkit-transform: rotate3d(0,0,1,342deg);
+			transform: rotate3d(0,0,1,342deg);
+		}
+		100% {
+			-webkit-transform: rotate3d(0,0,1,360deg);
+			transform: rotate3d(0,0,1,360deg);
+		}
+
+	}
+	.swings{
+		-webkit-animation-duration: 1s;
+		animation-duration: 1s;
+		-webkit-animation-iteration-count: 3;
+		animation-iteration-count:3;
+		-webkit-transform-origin: center center;
+		transform-origin: center center;
+		-webkit-animation-name:swings;
+		animation-name:swings;
+	}
+</style>
+<body>
+	<div class="container-fluid" id="main">
+		<nav class="navbar navbar-expand-lg navbar-light " style="padding-top: 20px;">
+			<a class="navbar-brand" href="/">
+				<img src="./static/data/login/login-topbar.png">
+			</a>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+				</ul>
+				<div class="my-2 my-lg-0">
+					<img src="./static/data/login/login-toprightlogo.png">
+				</div>
+			</div>
+		</nav>
+		
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-10 text-center" style="margin-top: 200px;">
+					<img src="./static/data/story4/timer3-numbercentercircle.png" class="cd" id="cd3">
+					<img src="./static/data/story5/timer2-numbercentercircle.png" class="cd" id="cd2">
+					<img src="./static/data/story6/timer1-numbercentercircle.png" class="cd" id="cd1">
+					<div id="rotate" class="swings">
+						<img src="./static/data/story4/timer3-circle.png" id="rt3" class="">
+						<img src="./static/data/story5/timer2-circle.png" id="rt2">
+						<img src="./static/data/story6/timer1-circle.png" id="rt1">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer" style="position: fixed;bottom: 30px;left: 50px; display: inline;">
+			<ul class="navbar-nav" style="display: inline-block;">
+				<li class="nav-link" style="float: left;padding: 10px;"><a href="/"><img src="./static/navi/main-off.png"></a></li>
+				<li class="nav-link" style="float: left;padding: 10px;"><a href="/regist"><img src="./static/navi/login-off.png"></a></li>
+				<li class="nav-link" style="float: left;padding: 10px;"><a href="#"><img src="./static/navi/story-on.png"></a></li>
+				<li class="nav-link" style="float: left;padding: 10px;"><a href="#"><img src="./static/navi/game-off.png"></a></li>
+			</ul>
+		</div>
+
+	</div>
+	<!-- Javascript -->
+	<script type="text/javascript" src="./static/js/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+					// setTimeout(function(){
+			// 	$('#cd3').fadeTo(1000 , 0, function(){
+
+			// 	});
+			// 	$('#cd2').fadeTo(1000 , 1, function(){
+					
+			// 	})
+				
+			// }, 1000); 			
+
+
+
+			// setTimeout(function(){
+				
+			// 	$('#cd2').fadeTo(1000 , 0, function(){
+					
+			// 	})
+			// 	$('#cd1').fadeTo(1000 , 1, function(){
+					
+			// 	})
+			// }, 2000); 
+			
+			setTimeout(function(){
+				$('#cd3').attr('src','./static/data/story5/timer2-numbercentercircle.png');
+				$('#rt3').attr('src','./static/data/story5/timer2-circle.png');
+				
+				
+			}, 1000); 			
+
+			setTimeout(function(){
+				$('#cd3').attr('src','./static/data/story6/timer1-numbercentercircle.png');
+				$('#rt3').attr('src','./static/data/story6/timer1-circle.png');
+			}, 2000); 
+
+			setTimeout(function(){
+				paging()
+			}, 3100); 
+			
+		});
+
+		function paging(){
+			$(location).attr('href', 'http://127.0.0.1:5000/game?name={{ name }}')
+			
+		}
+		
+	</script>
+</body>
+</html>
